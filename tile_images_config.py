@@ -67,13 +67,13 @@ if __name__ == "__main__":
             size = min(w // args.col, h // args.row)
             preShowList = []
             pre_show = np.array([])
-            save_dir=os.path.join(args.save_path, image.split('.')[0])
+            save_dir = os.path.join(args.save_path, image.split('.')[0])
             if os.path.exists(save_dir):
                 shutil.rmtree(save_dir)
             os.makedirs(save_dir, exist_ok=True)
             for i in range(args.row):
                 for k in range(args.col):
-                    img_name = f"{i+1}_{k+1}.jpg"
+                    img_name = f"{i + 1}_{k + 1}.jpg"
                     save_img = img[i * size:(i + 1) * size, k * size:(k + 1) * size, :]
                     result = f"{save_dir}/{img_name}"
                     cv2.imwrite(result, save_img)
